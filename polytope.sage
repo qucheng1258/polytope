@@ -27,15 +27,17 @@ class ZeroOnePolytope:
         return NotImplemented
 
     # transpose the matrix
-    # TODO: see if can use np.matrix()
     def transpose(self):
         self.matrix = self.matrix.transpose()
         return self
 
+    def getMatrix(self):
+    	return self.matrix
+
     def print(self):
         print (self.matrix)
 
-# Python program to print all 
+# Python program to get all
 # subset combination of n  
 # element in given set of r element . 
   
@@ -47,7 +49,9 @@ class ZeroOnePolytope:
 # index ---> Current index in data[] 
 # r ---> Size of a combination  
 #        to be printed 
+# result ---> a set stores all unique results
 def combinationUtil(arr, n, r,  
+
                     index, data, i, result): 
     # Current combination is  
     # ready to be printed, 
@@ -56,7 +60,8 @@ def combinationUtil(arr, n, r,
         combList = []
         for j in range(r): 
             combList.append(data[j])
-        result.append(combList)
+        polytope = ZeroOnePolytope(combList)
+        result.add(polytope)
         return
   
     # When no more elements  
@@ -85,7 +90,7 @@ def combinationUtil(arr, n, r,
 # of size r in arr[] of  
 # size n. This function  
 # mainly uses combinationUtil() 
-def getCombination(arr, n, r): 
+def getUniquePolytopesFromCombination(arr, n, r): 
   
     # A temporary array to 
     # store all combination 
@@ -93,7 +98,7 @@ def getCombination(arr, n, r):
     data = list(range(r)) 
       
     # Store all combinations to result
-    result = []
+    result = set()
     combinationUtil(arr, n, r,  
                     0, data, 0, result)
     return result
@@ -123,6 +128,7 @@ def getPermutatedMatricesFromMatrix(matrix):
         permutatedMatrices.append(tempMatrix)
     return permutatedMatrices
 
+# @deprecated
 # Helper function for getting all permutated matrices from a matrices
 # TODO: dedup while adding each permutated set
 def getAllPermutatedMatrices(matrices):
@@ -132,7 +138,7 @@ def getAllPermutatedMatrices(matrices):
     return allPermutatedMatrices
 
 
-@deprecated
+# @deprecated
 # This function removes the intersected elements of matrices1 and matrices2 from matrices1
 def getDeduplicatedMatrices(m1, m2):
     for i in range(len(m1)):
@@ -143,14 +149,11 @@ def getDeduplicatedMatrices(m1, m2):
     return list(filter(None, m1))
 
 # This function dedups two matrices and returns a list of unique polytopes
-def getUniquePolytopesFromMatrices(m1, m2):
+def getUniquePolytopesFromMatrices(m1):
     polytopeSet = set()
     transposedPolytopeSet = set()
     for i in range(len(m1)):
         polytope = ZeroOnePolytope(m1[i])
-        polytopeSet.add(polytope)
-    for i in range(len(m2)):
-        polytope = ZeroOnePolytope(m2[i])
         polytopeSet.add(polytope)
 
     # deduplicate based on transposed matrix
@@ -186,29 +189,40 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('-d', '--dimension', help = "Dimension of polytope")
 parser.add_argument('-n', '--nvertices', help = "Number of vertices we want to inspect")
+parser.add_argument('-f', '--file', help = "File name to write the results to")
 
 args = parser.parse_args()
 
 dimension = int(args.dimension)
 numOfVertices = int(args.nvertices)
+file = open(args.file, "w") if args.file else open("result", "w")
 
 verticesList = list(product(range(2), repeat = dimension))
 print("Initialize a list of vertices of [0,1]  based on dimension d. Size = 2^d \n")
 print(verticesList)
 print("\n")
-
-verticesMatrices = getCombination(verticesList, len(verticesList), numOfVertices)
-print("Get matrices of combination of vertices based on n vertices we want in a matrix. 2^d choose n \n")
-printMatrices(verticesMatrices)
-print("\n")
-
-permutatedMatrices = getAllPermutatedMatrices(verticesMatrices)
-print("Get permutated matrices of each vertices matrix (vertices set derived from equivlence relation ii) \n")
-printMatrices(permutatedMatrices)
-print("\n")
+file.write("Initialize a list of vertices of [0,1]  based on dimension d. Size = 2^d \n\n")
+np.savetxt(file, np.matrix(verticesList), fmt='%d', newline='\n', delimiter=',')
+file.write("\n")
 
 
-uniquePolytopes = getUniquePolytopesFromMatrices(verticesMatrices, permutatedMatrices)
+# verticesMatrices = getCombination(verticesList, len(verticesList), numOfVertices)
+# print("Get matrices of combination of vertices based on n vertices we want in a matrix. 2^d choose n \n")
+# printMatrices(verticesMatrices)
+# print("\n")
+
+# permutatedMatrices = getAllPermutatedMatrices(verticesMatrices)
+# print("Get permutated matrices of each vertices matrix (vertices set derived from equivlence relation ii) \n")
+# printMatrices(permutatedMatrices)
+# print("\n")
+
+
+uniquePolytopes = getUniquePolytopesFromCombination(verticesList, len(verticesList), numOfVertices)
 print("Set of unique vertices based on equivlence relation \n")
+file.write("Set of unique vertices based on equivlence relation \n")
 for polytope in uniquePolytopes:
     polytope.print()
+    file.write('\n')
+    np.savetxt(file, polytope.getMatrix(), fmt='%d', newline='\n', delimiter=',')
+
+file.close()
