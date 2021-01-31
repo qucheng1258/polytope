@@ -27,6 +27,8 @@ def runProgram(dimension, numOfVertices, file):
 	globalMinSet = []
 	minOnEveryCol = []
 
+	print("Calculating d={} n={}".format(dimension, numOfVertices))
+
 	for vertices in verticesSet:
 		calculateglobalMinSet(vertices)
 
@@ -58,6 +60,7 @@ parser.add_argument('-d', '--dimension', help = "Dimension of polytope")
 parser.add_argument('-n', '--nvertices', help = "Number of vertices we want to inspect")
 parser.add_argument('-f', '--file', help = "File name to write the results to")
 parser.add_argument('-r', '--reverse', help = "Run number of vertices in reverse order")
+parser.add_argument('-i', '--index', help = "Starting index of number of vertices")
 
 args = parser.parse_args()
 
@@ -70,7 +73,9 @@ if args.nvertices:
 	file.close()
 	quit()
 
-for i in range(2, pow(2, dimension) - 2):
+start = int(args.index) if args.index else 2
+end = pow(2, dimension) - start if args.reverse else pow(2, dimension) - 2
+for i in range(start, end):
 	runProgram(dimension, pow(2, dimension) - i if args.reverse else i, file)
 
 

@@ -1,0 +1,12 @@
+d=6 n=62
+The global minimum set of face number is:
+[1, 62, 201, 265, 180, 67, 13, 1]
+The face number set with minimum on each column:
+[1, 62, 201, 265, 180, 67, 13, 1]
+The global minimum set equals to the array with min on every column: True
+d=6 n=61
+The global minimum set of face number is:
+[1, 61, 206, 281, 195, 73, 14, 1]
+The face number set with minimum on each column:
+[1, 61, 206, 281, 195, 73, 14, 1]
+The global minimum set equals to the array with min on every column: True
