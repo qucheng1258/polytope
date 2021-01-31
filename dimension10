@@ -1,0 +1,7 @@
+d=10 n=2
+The global minimum set of face number is:
+1 2 1
+The face number set with minimum on each column:
+1 2 1
+The global minimum set equals to the array with min on every column: True
+

@@ -57,15 +57,21 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-d', '--dimension', help = "Dimension of polytope")
 parser.add_argument('-n', '--nvertices', help = "Number of vertices we want to inspect")
 parser.add_argument('-f', '--file', help = "File name to write the results to")
+parser.add_argument('-r', '--reverse', help = "Run number of vertices in reverse order")
 
 args = parser.parse_args()
 
 dimension = int(args.dimension)
-numOfVertices = int(args.nvertices)
 file = open(args.file, "w") if args.file else open("result", "w")
 
+if args.nvertices:
+	numOfVertices = int(args.nvertices)
+	runProgram(dimension, numOfVertices, file)
+	file.close()
+	quit()
+
 for i in range(2, pow(2, dimension) - 2):
-	runProgram(dimension, i, file)
+	runProgram(dimension, pow(2, dimension) - i if args.reverse else i, file)
 
 
 file.close()
