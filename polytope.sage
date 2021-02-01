@@ -9,19 +9,31 @@ def runProgram(dimension, numOfVertices, file):
 		nonlocal minOnEveryCol
 		polyhedron = Polyhedron(vertices = vertices)
 		fVector = polyhedron.f_vector().list(copy=False)
-
+		
+		# Dimension d should have d+2 length f vector
+		if len(fVector) != dimension + 2:
+			return
+		
+		# We set the first valid f vector as both the global min and min on every column
 		if not globalMinSet:
 			globalMinSet = fVector
 			minOnEveryCol = fVector
 			return
+
+		# Use isMin to track if the f1 vector is smaller than f2 vector on every column
+		# To avoid the edge case that the first f vector isn't the smallest
+		# We also record the min on every column	
 		isMin = True
 		for index in range(len(globalMinSet)):
 			isMin = isMin and (fVector[index] < globalMinSet[index])
 			minOnEveryCol[index] = min(minOnEveryCol[index], fVector[index])
 			if isMin:
 				globalMinSet = fVector
-	
+
+	# Produce a list of 0,1 arrays ready to represent polytopes
 	verticesList = list(itertools.product(range(2), repeat = dimension))
+
+	# Combine prev list of 0,1 arrays to form polytopes of chosen number of vertices
 	verticesSet = itertools.combinations(verticesList, numOfVertices)
 	
 	globalMinSet = []
@@ -73,7 +85,7 @@ if args.nvertices:
 	file.close()
 	quit()
 
-start = int(args.index) if args.index else 2
+start = int(args.index) if args.index else dimension + 1
 end = pow(2, dimension) - start if args.reverse else pow(2, dimension) - 2
 for i in range(start, end):
 	runProgram(dimension, pow(2, dimension) - i if args.reverse else i, file)
