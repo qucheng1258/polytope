@@ -86,7 +86,7 @@ if args.nvertices:
 	quit()
 
 start = int(args.index) if args.index else dimension + 1
-end = pow(2, dimension) - start if args.reverse else pow(2, dimension) - 2
+end = pow(2, dimension) - 2
 for i in range(start, end):
 	runProgram(dimension, pow(2, dimension) - i if args.reverse else i, file)
 
