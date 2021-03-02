@@ -32,9 +32,14 @@ def runProgram(dimension, numOfVertices, file):
 
 	# Produce a list of 0,1 arrays ready to represent polytopes
 	verticesList = list(itertools.product(range(2), repeat = dimension))
+	# Remove and keep a copy of (0,...0) vertice because we want to fix this vertice in all combinations
+	zeroVertice = verticesList[0]
+	del verticesList[0]
+
 
 	# Combine prev list of 0,1 arrays to form polytopes of chosen number of vertices
-	verticesSet = itertools.combinations(verticesList, numOfVertices)
+	# Since we are fixing (0,...0), we need to substract n by 1
+	verticesSet = itertools.combinations(verticesList, numOfVertices - 1)
 	
 	globalMinSet = []
 	minOnEveryCol = []
@@ -42,7 +47,9 @@ def runProgram(dimension, numOfVertices, file):
 	print("Calculating d={} n={}".format(dimension, numOfVertices))
 
 	for vertices in verticesSet:
-		calculateglobalMinSet(vertices)
+		temp = list(vertices)
+		temp.append(zeroVertice)
+		calculateglobalMinSet(temp)
 
 	print("d={} n={}".format(dimension, numOfVertices))
 	file.write("d={} n={}".format(dimension, numOfVertices))
