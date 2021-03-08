@@ -183,7 +183,7 @@ for nmip1, i in zip(range(n - 1, n - k, -1), range(2, k + 1)):
     n = n * nmip1 // i
 
 
-executor = concurrent.futures.ThreadPoolExecutor(max_workers = nodes)
+executor = concurrent.futures.ProcessPoolExecutor(max_workers = nodes)
 futures = []
 start_time = time.time()
 for node in range(nodes):
