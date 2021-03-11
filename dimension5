@@ -1,0 +1,183 @@
+
+Calculating d=5 n=6
+d=5 n=6
+The global minimum set of face number is:
+[1, 6, 15, 20, 15, 6, 1]
+The face number set with minimum on each column:
+[1, 6, 15, 20, 15, 6, 1]
+The global minimum set equals to the array with min on every column: True
+
+Calculating d=5 n=7
+d=5 n=7
+The global minimum set of face number is:
+[1, 7, 19, 26, 19, 7, 1]
+The face number set with minimum on each column:
+[1, 7, 19, 26, 19, 7, 1]
+The global minimum set equals to the array with min on every column: True
+
+Calculating d=5 n=8
+d=5 n=8
+The global minimum set of face number is:
+[1, 8, 22, 29, 20, 7, 1]
+The face number set with minimum on each column:
+[1, 8, 22, 29, 20, 7, 1]
+The global minimum set equals to the array with min on every column: True
+
+Calculating d=5 n=9
+d=5 n=9
+The global minimum set of face number is:
+[1, 9, 24, 30, 20, 7, 1]
+The face number set with minimum on each column:
+[1, 9, 24, 30, 20, 7, 1]
+The global minimum set equals to the array with min on every column: True
+
+Calculating d=5 n=10
+d=5 n=10
+The global minimum set of face number is:
+[1, 10, 25, 30, 20, 7, 1]
+The face number set with minimum on each column:
+[1, 10, 25, 30, 20, 7, 1]
+The global minimum set equals to the array with min on every column: True
+
+Calculating d=5 n=11
+d=5 n=11
+The global minimum set of face number is:
+[1, 11, 31, 39, 25, 8, 1]
+The face number set with minimum on each column:
+[1, 11, 31, 39, 25, 8, 1]
+The global minimum set equals to the array with min on every column: True
+
+Calculating d=5 n=12
+d=5 n=12
+The global minimum set of face number is:
+[1, 12, 30, 34, 21, 7, 1]
+The face number set with minimum on each column:
+[1, 12, 30, 34, 21, 7, 1]
+The global minimum set equals to the array with min on every column: True
+
+Calculating d=5 n=13
+d=5 n=13
+The global minimum set of face number is:
+[1, 13, 36, 43, 26, 8, 1]
+The face number set with minimum on each column:
+[1, 13, 36, 43, 26, 8, 1]
+The global minimum set equals to the array with min on every column: True
+
+d=5 n=14
+The global minimum set of face number is:
+1 14 37 43 26 8 1
+The face number set with minimum on each column:
+1 14 37 43 26 8 1
+The global minimum set equals to the array with min on every column: True
+
+d=5 n=15
+The global minimum set of face number is:
+1 15 39 44 26 8 1
+The face number set with minimum on each column:
+1 15 39 44 26 8 1
+The global minimum set equals to the array with min on every column: True
+
+d=5 n=16
+The global minimum set of face number is:
+1 16 40 44 26 8 1
+The face number set with minimum on each column:
+1 16 40 44 26 8 1
+The global minimum set equals to the array with min on every column: True
+
+d=5 n=17
+The global minimum set of face number is:
+1 17 48 56 32 9 1
+The face number set with minimum on each column:
+1 17 48 56 32 9 1
+The global minimum set equals to the array with min on every column: True
+
+d=5 n=18
+The global minimum set of face number is:
+1 18 45 48 27 8 1
+The face number set with minimum on each column:
+1 18 45 48 27 8 1
+The global minimum set equals to the array with min on every column: True
+
+d=5 n=19
+The global minimum set of face number is:
+1 19 55 65 37 10 1
+The face number set with minimum on each column:
+1 19 55 65 37 10 1
+The global minimum set equals to the array with min on every column: True
+
+d=5 n=20
+The global minimum set of face number is:
+1 20 52 57 32 9 1
+The face number set with minimum on each column:
+1 20 52 57 32 9 1
+The global minimum set equals to the array with min on every column: True
+
+d=5 n=21
+The global minimum set of face number is:
+1 21 57 64 36 10 1
+The face number set with minimum on each column:
+1 21 57 64 36 10 1
+The global minimum set equals to the array with min on every column: True
+
+d=5 n=22
+The global minimum set of face number is:
+1 22 61 69 38 10 1
+The face number set with minimum on each column:
+1 22 61 69 38 10 1
+The global minimum set equals to the array with min on every column: True
+
+d=5 n=23
+The global minimum set of face number is:
+1 23 64 71 38 10 1
+The face number set with minimum on each column:
+1 23 64 71 38 10 1
+The global minimum set equals to the array with min on every column: True
+
+d=5 n=24
+The global minimum set of face number is:
+1 24 60 62 33 9 1
+The face number set with minimum on each column:
+1 24 60 62 33 9 1
+The global minimum set equals to the array with min on every column: True
+
+d=5 n=25
+The global minimum set of face number is:
+1 25 75 89 49 12 1
+The face number set with minimum on each column:
+1 25 75 89 49 12 1
+The global minimum set equals to the array with min on every column: True
+
+d=5 n=26
+The global minimum set of face number is:
+1 26 75 87 48 11 1
+The face number set with minimum on each column:
+1 26 75 87 48 11 1
+The global minimum set equals to the array with min on every column: True
+
+d=5 n=27
+The global minimum set of face number is:
+1 27 80 92 49 12 1
+The face number set with minimum on each column:
+1 27 80 92 49 12 1
+The global minimum set equals to the array with min on every column: True
+
+d=5 n=28
+The global minimum set of face number is:
+1 28 76 83 44 11 1
+The face number set with minimum on each column:
+1 28 76 83 44 11 1
+The global minimum set equals to the array with min on every column: True
+
+d=5 n=29
+The global minimum set of face number is:
+1 29 85 97 51 12 1
+The face number set with minimum on each column:
+1 29 85 97 51 12 1
+The global minimum set equals to the array with min on every column: True
+
+d=5 n=30
+The global minimum set of face number is:
+1 30 83 90 46 11 1
+The face number set with minimum on each column:
+1 30 83 90 46 11 1
+The global minimum set equals to the array with min on every column: True
